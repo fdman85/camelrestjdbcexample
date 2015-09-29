@@ -5,4 +5,4 @@ Example web application provides REST API that make available to execute CRUD op
 REST API is configured in com.peterservice.example.camel.restjdbc.ExampleUsersRouteConfiguration class. 
 
 U can to start that app by typing **mvn jetty:run** at your console (be sure that 28080 port is free).
-After that U can to get some list of users by executing the GET method: http://localhost:28080/rs/users []
+After that U can to get some list of users by executing the GET method: http://localhost:28080/rs/users
