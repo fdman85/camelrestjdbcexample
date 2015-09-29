@@ -3,5 +3,3 @@ CREATE TABLE users(
   firstName VARCHAR(100) DEFAULT NULL,
   lastName VARCHAR(100) DEFAULT NULL
 );
-
-insert into users (firstName, lastName) values ('Ekaterina','Koshkarova');
