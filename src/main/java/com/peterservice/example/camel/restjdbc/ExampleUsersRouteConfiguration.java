@@ -26,7 +26,7 @@ public class ExampleUsersRouteConfiguration extends RouteBuilder {
         from("restlet:/users?restletMethod=POST")
                 .setBody(simple("insert into users(firstName, lastName) values('${header.firstName}','${header.lastName}')"))
                 .to("jdbc:dataSource")
-                .setBody(simple("select * from users where id in (select max(id) from person)"))
+                .setBody(simple("select * from users where id in (select max(id) from users)"))
                 .to("jdbc:dataSource");
 
         from("restlet:/users/{userId}?restletMethods=GET,PUT,DELETE")
