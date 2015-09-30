@@ -20,7 +20,7 @@
         <servlet-class>org.restlet.ext.spring.SpringServerServlet</servlet-class>
         <init-param>
             <param-name>org.restlet.component</param-name>
-            <param-value>RestletComponent</param-value>
+            <param-value>restletComponent</param-value>
         </init-param>
     </servlet>
 

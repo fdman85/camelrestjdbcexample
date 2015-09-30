@@ -10,17 +10,20 @@
                            http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
                            http://camel.apache.org/schema/spring
                            http://camel.apache.org/schema/spring/camel-spring.xsd">
-    <bean id="RestletComponent" class="org.restlet.Component"/>
+    <bean id="restletComponent" class="org.restlet.Component"/>
 
-    <bean id="RestletComponentService" class="org.apache.camel.component.restlet.RestletComponent">
-        <constructor-arg ref="RestletComponent"/>
+    <bean id="restletComponentService" class="org.apache.camel.component.restlet.RestletComponent">
+        <constructor-arg ref="restletComponent"/>
     </bean>
 
     <jdbc:embedded-database id="dataSource" type="DERBY">
         <jdbc:script location="classpath:sql/init.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="myRouteConfig" class="com.peterservice.example.camel.restjdbc.ExampleUsersRouteConfiguration"/>
+    <bean id="headerMovingProcessor" class="com.peterservice.example.camel.restjdbc.HeaderMovingProcessor"/>
+    <bean id="myRouteConfig" class="com.peterservice.example.camel.restjdbc.ExampleUsersRouteConfiguration">
+        <constructor-arg ref="headerMovingProcessor"/>
+    </bean>
 
     <camel:camelContext id="defaultCamelContext">
         <camel:routeBuilder ref="myRouteConfig"/>
